@@ -4,7 +4,12 @@ from ortools.linear_solver import pywraplp
 
 class q1():
     def __init__(self, costs, offers, demands, i):
-        self.solver = pywraplp.Solver.CreateSolver('GLOP')
+        self.solver = pywraplp.Solver(
+            'simple_lp_program', pywraplp.Solver.GLOP_LINEAR_PROGRAMMING)
+        self.parameters = pywraplp.MPSolverParameters()
+        self.parameters.SetIntegerParam(
+            pywraplp.MPSolverParameters.LP_ALGORITHM,
+            pywraplp.MPSolverParameters.DUAL)
         self.costs = costs
         self.offers = offers
         self.demands = demands
@@ -43,11 +48,11 @@ class q1():
             for j in range(num_demand):
                 objective.append(self.costs[i][j] * x[i, j])
 
-        # Encontrando a solução mínima
-        self.solver.Minimize(self.solver.Sum(objective))
+        # Encontrando a solução máxima
+        self.solver.Maximize(self.solver.Sum(objective))
 
         # Invocando self.solver para resolver o problema
-        status = self.solver.Solve()
+        status = self.solver.Solve(self.parameters)
 
         # Printando resultado do problema
         if status == pywraplp.Solver.OPTIMAL or status == pywraplp.Solver.FEASIBLE:
