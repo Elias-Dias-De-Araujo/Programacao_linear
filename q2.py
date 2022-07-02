@@ -49,7 +49,7 @@ class q2():
                 objective.append(self.costs[i][j] * x[i, j])
 
         # Encontrando a solução máxima
-        self.solver.Maximize(self.solver.Sum(objective))
+        self.solver.Minimize(self.solver.Sum(objective))
 
         # Invocando self.solver para resolver o problema
         status = self.solver.Solve(self.parameters)
@@ -57,7 +57,7 @@ class q2():
         # Printando resultado do problema
         if status == pywraplp.Solver.OPTIMAL or status == pywraplp.Solver.FEASIBLE:
 
-            textfile = open("./results/q1/"+self.iteration+".txt", "w")
+            textfile = open("./results/q2/"+self.iteration+".txt", "w")
             textfile.write('Custo total: {} \n'.format(
                 self.solver.Objective().Value()))
             for i in range(num_offer):

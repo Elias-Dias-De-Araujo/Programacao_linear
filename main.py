@@ -1,3 +1,4 @@
+import time
 import numpy as np
 from q1 import q1
 from q2 import q2
@@ -21,12 +22,22 @@ def main():
     while (i < 10):
         data = generateProblem()
         # Primal
+        primalTime = time.perf_counter()
         x = q1(data[0], data[1], data[2], i)
         x.resolveProblem()
+        finalPrimalTime = time.perf_counter()
 
         # Dual
+        dualTime = time.perf_counter()
         y = q2(data[0], data[1], data[2], i)
         y.resolveProblem()
+        finalDualTime = time.perf_counter()
+
+        print("Instância " + str(i))
+        print(
+            f"Tempo de execução do primal: {finalPrimalTime - primalTime:0.4f} segundos")
+        print(
+            f"Tempo de execução do dual: {finalDualTime - dualTime:0.4f} segundos")
 
         i += 1
     print("CONCLUIDO!")
