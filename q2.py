@@ -2,7 +2,7 @@ from cgitb import text
 from ortools.linear_solver import pywraplp
 
 
-class q1():
+class q2():
     def __init__(self, costs, offers, demands, i):
         self.solver = pywraplp.Solver(
             'simple_lp_program', pywraplp.Solver.GLOP_LINEAR_PROGRAMMING)
