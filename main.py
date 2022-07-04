@@ -8,10 +8,10 @@ from dual import q2
 def generateProblem():
     costs = np.random.randint(100, 999, (100, 100))
     offers = [1]
-    demands = [999]
+    demands = [999] #Array inicial apenas para que a condição abaixo aconteça da primeira vez
 
     while (sum(demands) > sum(offers)):  # Repete enquanto a soma das demandas for maior que as ofertas
-        offers = np.random.randint(100, 999, size=100)
+        offers = np.random.randint(100, 999, size=100) #Valor minimo do array = 100, Valor máximo do array = 999, Tamanho do array 100
         demands = np.random.randint(100, 999, size=100)
 
     return (costs, offers, demands)
@@ -54,6 +54,7 @@ def main():
             finalDualTimeRes = time.perf_counter()
             t4 = finalDualTimeRes - dualTimeRes
 
+            #CRIAÇÃO DO CSV
             writer = csv.writer(f)
             writer.writerow(['ITERAÇÃO: ', i])
             writer.writerow(header)
@@ -62,7 +63,7 @@ def main():
             writer.writerow(['Dual', r3, t3])
             writer.writerow(['Dual (Restrição de Integralidade)', r4, t4])
             writer.writerow('')
-            writer.writerow('')
+            
             i += 1
         print("CONCLUIDO!")
 
