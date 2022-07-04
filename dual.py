@@ -2,15 +2,18 @@ from cgitb import text
 from ortools.linear_solver import pywraplp
 
 
-class q1():
-    def __init__(self, costs, offers, demands, i, solverName, folder):
+class q2():
+    def __init__(self, costs, offers, demands, i, solverName):
         self.solver = pywraplp.Solver.CreateSolver(solverName)
+        self.parameters = pywraplp.MPSolverParameters()
+        self.parameters.SetIntegerParam(
+            pywraplp.MPSolverParameters.LP_ALGORITHM,
+            pywraplp.MPSolverParameters.DUAL)
         self.costs = costs
         self.offers = offers
         self.demands = demands
         self.iteration = str(i+1)
-        self.folder = folder
-
+        
     def resolveProblem(self):
         # Contando o número de linhas para saber a quantidade de ofertas
         num_offer = len(self.costs)
@@ -44,21 +47,24 @@ class q1():
             for j in range(num_demand):
                 objective.append(self.costs[i][j] * x[i, j])
 
-        # Encontrando a solução mínima
+        # Encontrando a solução máxima
         self.solver.Minimize(self.solver.Sum(objective))
 
         # Invocando self.solver para resolver o problema
-        status = self.solver.Solve()
+        status = self.solver.Solve(self.parameters)
 
+        # print(status.dual_value)
         # print(str(self.solver.NumConstraints()))
 
         # Printando resultado do problema
         if status == pywraplp.Solver.OPTIMAL or status == pywraplp.Solver.FEASIBLE:
-
-            textfile = open("./results/" + self.folder +
+            return self.solver.Objective().Value()
+            """ textfile = open("./results/" + self.folder +
                             "/"+self.iteration+".txt", "w")
-            textfile.write('Custo total: {} \n'.format(
-                self.solver.Objective().Value()))
+            textfile.write('Custo total: {} \n'.format( 
+                self.solver.Objective().Value())) 
+            """                 
+            """
             for i in range(num_offer):
                 for j in range(num_demand):
                     if (x[i, j].solution_value() > 0):
@@ -71,3 +77,4 @@ class q1():
                 self.offers, sum(self.offers)))
             textfile.write('\n Matriz de custos : {} \n'.format(self.costs))
             textfile.close()
+            """
