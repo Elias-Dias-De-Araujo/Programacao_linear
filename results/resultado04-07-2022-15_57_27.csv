@@ -1,0 +1,70 @@
+ITERAÇÃO: ,0
+Metodo,Solução Encontrada,Tempo de execução (ms)
+Primal,6087001.0,0.28956030000699684
+Primal (Restrição de Integralidade),6087001.0,0.40914750000229105
+Dual,6087001.0,0.27030649996595457
+Dual (Restrição de Integralidade),6087001.0,0.5007962000090629
+
+ITERAÇÃO: ,1
+Metodo,Solução Encontrada,Tempo de execução (ms)
+Primal,6355406.0,0.29602189996512607
+Primal (Restrição de Integralidade),6355406.000000001,0.4195453000138514
+Dual,6355406.0,0.23867819999577478
+Dual (Restrição de Integralidade),6355406.000000001,0.4244170999736525
+
+ITERAÇÃO: ,2
+Metodo,Solução Encontrada,Tempo de execução (ms)
+Primal,6686503.0,0.3079334999783896
+Primal (Restrição de Integralidade),6686503.0,0.5308483999688178
+Dual,6686503.0,0.4972126000211574
+Dual (Restrição de Integralidade),6686503.0,0.7323898999602534
+
+ITERAÇÃO: ,3
+Metodo,Solução Encontrada,Tempo de execução (ms)
+Primal,6143591.0,0.29515190003439784
+Primal (Restrição de Integralidade),6143591.0,0.4982804000028409
+Dual,6143591.0,0.24706849997164682
+Dual (Restrição de Integralidade),6143591.0,0.4437028000247665
+
+ITERAÇÃO: ,4
+Metodo,Solução Encontrada,Tempo de execução (ms)
+Primal,6009433.0,0.29569030000129715
+Primal (Restrição de Integralidade),6009433.0,0.42173369997181
+Dual,6009433.0,0.2458368000225164
+Dual (Restrição de Integralidade),6009433.0,0.4729656999697909
+
+ITERAÇÃO: ,5
+Metodo,Solução Encontrada,Tempo de execução (ms)
+Primal,6807136.0,0.2865305999876
+Primal (Restrição de Integralidade),6807136.0,0.42563349998090416
+Dual,6807136.0,0.24273890000768006
+Dual (Restrição de Integralidade),6807136.0,0.4288943000137806
+
+ITERAÇÃO: ,6
+Metodo,Solução Encontrada,Tempo de execução (ms)
+Primal,6018311.0,0.2980027999728918
+Primal (Restrição de Integralidade),6018311.0,0.4823780999868177
+Dual,6018311.0,0.25682280003093183
+Dual (Restrição de Integralidade),6018311.0,0.5111084000091068
+
+ITERAÇÃO: ,7
+Metodo,Solução Encontrada,Tempo de execução (ms)
+Primal,6275726.0,0.2977104999590665
+Primal (Restrição de Integralidade),6275726.0,0.4534296999918297
+Dual,6275726.0,0.2698970000492409
+Dual (Restrição de Integralidade),6275726.0,0.5065162000246346
+
+ITERAÇÃO: ,8
+Metodo,Solução Encontrada,Tempo de execução (ms)
+Primal,5776897.0,0.2884914000169374
+Primal (Restrição de Integralidade),5776897.000000001,0.4290155000053346
+Dual,5776897.0,0.24597370001720265
+Dual (Restrição de Integralidade),5776897.000000001,0.45282040000893176
+
+ITERAÇÃO: ,9
+Metodo,Solução Encontrada,Tempo de execução (ms)
+Primal,6613619.0,0.31735639995895326
+Primal (Restrição de Integralidade),6613618.999999999,0.4712408999912441
+Dual,6613619.0,0.2516821000026539
+Dual (Restrição de Integralidade),6613618.999999999,0.44320159999188036
+
