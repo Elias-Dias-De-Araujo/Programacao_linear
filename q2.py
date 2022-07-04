@@ -3,9 +3,8 @@ from ortools.linear_solver import pywraplp
 
 
 class q2():
-    def __init__(self, costs, offers, demands, i):
-        self.solver = pywraplp.Solver(
-            'simple_lp_program', pywraplp.Solver.GLOP_LINEAR_PROGRAMMING)
+    def __init__(self, costs, offers, demands, i, solverName, folder):
+        self.solver = pywraplp.Solver.CreateSolver(solverName)
         self.parameters = pywraplp.MPSolverParameters()
         self.parameters.SetIntegerParam(
             pywraplp.MPSolverParameters.LP_ALGORITHM,
@@ -14,6 +13,7 @@ class q2():
         self.offers = offers
         self.demands = demands
         self.iteration = str(i+1)
+        self.folder = folder
 
     def resolveProblem(self):
         # Contando o número de linhas para saber a quantidade de ofertas
@@ -54,10 +54,14 @@ class q2():
         # Invocando self.solver para resolver o problema
         status = self.solver.Solve(self.parameters)
 
+        # print(status.dual_value)
+        # print(str(self.solver.NumConstraints()))
+
         # Printando resultado do problema
         if status == pywraplp.Solver.OPTIMAL or status == pywraplp.Solver.FEASIBLE:
 
-            textfile = open("./results/q2/"+self.iteration+".txt", "w")
+            textfile = open("./results/" + self.folder +
+                            "/"+self.iteration+".txt", "w")
             textfile.write('Custo total: {} \n'.format(
                 self.solver.Objective().Value()))
             for i in range(num_offer):
