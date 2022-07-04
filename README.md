@@ -1,5 +1,5 @@
 # Matemática computacional Trabalho 2
-#### Programação Linear,
+#### Programação Linear, Dual/Primal/Restrição de Integralidade
 
 ## Instruções :
 
